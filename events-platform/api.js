@@ -10,4 +10,12 @@ const getAllEvents = () => {
     })
 }
 
-export { getAllEvents }
+const getAllUsers = () => {
+    let url = `/users`
+
+    return api.get(url).then(({data}) => {
+        return data.users
+    })
+}
+
+export { getAllEvents, getAllUsers }
