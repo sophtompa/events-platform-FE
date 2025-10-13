@@ -18,4 +18,10 @@ const getAllUsers = () => {
     })
 }
 
-export { getAllEvents, getAllUsers }
+const getEvent = (id) => {
+    return api.get(`/events/${id}`).then(({data}) => {
+        return data
+    })
+}
+
+export { getAllEvents, getAllUsers, getEvent }
