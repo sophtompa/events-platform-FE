@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 function Events() {
     const [isLoading, setLoading] = useState(true)
     const [events, setEvents] = useState([])
+    const navigate = useNavigate()
 
     useEffect(
         () => { 
@@ -15,9 +16,9 @@ function Events() {
         }, [])
 
 
-    // function handleClick(title) {
-    //     navigate(`/events/${title}`)
-    // }
+    function handleClick(id) {
+        navigate(`/events/${id}`)
+    }
 
         if (isLoading) return <h3>Getting Events...</h3>
 
@@ -29,7 +30,7 @@ function Events() {
         <section>
         {events.map((event) => {
             return (
-                <ul key={event.title} className='event-display' value={event.id} onClick={() => handleClick(event.title)}>
+                <ul key={event.id} className='event-display' value={event.id} onClick={() => handleClick(event.id)}>
                     <li className='title'>{event.title}</li>
                     <li>Details: {event.description}</li>
                     <li>Location: {event.location}</li>

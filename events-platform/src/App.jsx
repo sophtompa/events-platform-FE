@@ -5,6 +5,7 @@ import Home from '../components/Home'
 import Nav from '../components/Nav'
 import Events from '../components/Events'
 import Users from '../components/Users'
+import Event from '../components/Event'
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
     <Routes>
     <Route path='/' element={<Home/>}/>
     <Route path='/events' element={<Events/>}/>
+    <Route path='/events/:id' element={<Event/>}/>
     <Route path='/users' element={<Users/>}/>
     </Routes>
     </>
