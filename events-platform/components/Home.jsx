@@ -4,8 +4,8 @@ function Home() {
         <section>
             Welcome to Events-Platform
             You must have an account to access events.
-            <button>Login</button>
-            <button>Sign Up</button>
+            <button onClick={() => navigate("staff-signup")}>Staff Login</button>
+            <button>Staff Sign Up</button>
         </section>
     )
 }
