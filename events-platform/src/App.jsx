@@ -7,6 +7,7 @@ import Events from '../components/Events'
 import Users from '../components/Users'
 import Event from '../components/Event'
 import StaffSignUp from '../components/StaffSignUp'
+import StaffUser from '../components/StaffSignUp'
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
     <Route path='/events/:id' element={<Event/>}/>
     <Route path='/users' element={<Users/>}/>
     <Route path="/staff-signup" element={<StaffSignUp />} />
+    <Route path="/staff-user" element={<StaffUser />} />
     </Routes>
     </>
   )
