@@ -13,8 +13,10 @@ function StaffLogin() {
         loginUser(username, password)
         .then((res) => {
             localStorage.setItem("token", res.token)
+            navigate("/staff-user", {state: { username }})
         })
         .catch((err) => {
+            alert("Invalid username or password")
             return err
         })
         };
