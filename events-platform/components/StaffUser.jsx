@@ -1,7 +1,15 @@
+import { useLocation } from "react-router-dom";
+
 function StaffUser() {
+    const location = useLocation();
+    const username = location.state?.username || "User";
 
     return (
-        <h1>Staff User Page</h1>
+        <>
+        <h2>Welcome {username}!</h2>
+        <p>Would you like to post a new event?</p>
+        <button>Post an event</button>
+        </>
     )
 }
 

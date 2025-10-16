@@ -7,7 +7,7 @@ import Events from '../components/Events'
 import Users from '../components/Users'
 import Event from '../components/Event'
 import StaffSignUp from '../components/StaffSignUp'
-import StaffUser from '../components/StaffSignUp'
+import StaffUser from '../components/StaffUser'
 import StaffLogin from '../components/StaffLogin'
 
 function App() {
