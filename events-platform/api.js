@@ -33,4 +33,15 @@ const postUser = (username, password) => {
     })
 }
 
-export { getAllEvents, getAllUsers, getEvent, postUser }
+const loginUser = (username, password) => {
+    return api.post(`/login`, { username, password })
+    .then(({data}) => {
+        console.log(data)
+        return data
+    })
+    .catch((err) => {
+        return err;
+    })
+}
+
+export { getAllEvents, getAllUsers, getEvent, postUser, loginUser }
