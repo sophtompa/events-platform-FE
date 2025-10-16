@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import { getEvent } from "../api"
+import { generateGoogleCalendarLink } from "../utils/calendar";
 
 function Event() {
     const {id} = useParams();
@@ -10,6 +11,8 @@ function Event() {
     const [signedUp, setSignedUp] = useState(false)
     const [enteredName, setEnteredName] = useState("")
     const navigate = useNavigate()
+
+   
 
     useEffect(
         () => {
@@ -21,6 +24,13 @@ function Event() {
     )
     if (isLoading) return <p>Loading...</p>
     if (!event) return <p>No event found</p>
+    
+    const calendarLink = generateGoogleCalendarLink({
+        title: event.title,
+        description: event.description,
+        location: event.location,
+        startDate: event.event_date, // format: YYYY-MM-DD
+    });
 
     const handleSubmit = (e) => {
         e.preventDefault() 
@@ -58,9 +68,22 @@ function Event() {
            </form>
         )}
 
-        {signedUp && (
-            <button>Add To Calendar</button>
-        )}
+{signedUp && (
+  <a
+    href={generateGoogleCalendarLink({
+      title: event.title,
+      description: event.description,
+      location: event.location,
+      startDate: event.event_date,
+      startTime: "10:00",         
+      durationMinutes: 60          
+    })}
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <button>Add To Calendar</button>
+  </a>
+)}
         </>
     )
 }
