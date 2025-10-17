@@ -24,6 +24,12 @@ const getEvent = (id) => {
     })
 }
 
+const getUser = (username) => {
+    return api.get(`/users/${username}`).then(({data}) => {
+        return data
+    })
+}
+
 const postUser = (username, password) => {
     return api.post(`/users`, { username, password }).then((data) => {
         return data
