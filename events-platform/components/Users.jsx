@@ -27,11 +27,11 @@ function Users() {
         <header>
             <h1>Users</h1>
         </header>
-        <section className="event-user-section">
+        <section className="event-user-section" onClick={() => handleClick(user.username)}>
         {users.map((user) => {
             return (
                 <ul key={user.username} className='event-user-display' value={user.id}>
-                    <li className='user'onClick={() => handleClick(user.username)}>{user.username} </li>
+                    <li className='user'>{user.username} </li>
                 </ul>
             )
         })}
