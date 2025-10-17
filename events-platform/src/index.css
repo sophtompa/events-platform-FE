@@ -4,8 +4,8 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: beige;
+  background-color: lightseagreen;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -66,3 +66,65 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem 0;
+  background-color: lightseagreen;
+  margin-bottom: 2rem;
+  border-radius: 0 0 12px 12px;
+}
+
+nav a {
+  font-weight: 700;
+  color: #1e2a78;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+nav a:hover {
+  color: #6c63ff;
+  transform: translateY(-2px);
+}
+
+.event-user-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.event-user-display {
+  list-style: none;
+  background-color: beige;
+  border: 2px solid #000;
+  border-radius: 16px;
+  padding: 1.5rem;
+  width: 280px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  color: #213547;
+}
+
+.event-user-display:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.event-user-display, li {
+  margin-bottom: 0.5rem;
+}
+
+.event-user-display .title {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #1e2a78;
+  margin-bottom: 0.75rem;
+}
+
