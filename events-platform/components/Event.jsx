@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { useParams, useNavigate } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { getEvent } from "../api"
 import { generateGoogleCalendarLink } from "../utils/calendar";
 
@@ -10,9 +10,6 @@ function Event() {
     const [showForm, setShowForm] = useState(false)
     const [signedUp, setSignedUp] = useState(false)
     const [enteredName, setEnteredName] = useState("")
-    const navigate = useNavigate()
-
-   
 
     useEffect(
         () => {
@@ -29,7 +26,7 @@ function Event() {
         title: event.title,
         description: event.description,
         location: event.location,
-        startDate: event.event_date, // format: YYYY-MM-DD
+        startDate: event.event_date,
     });
 
     const handleSubmit = (e) => {
@@ -53,36 +50,36 @@ function Event() {
         <button onClick={() => setShowForm(true)}>Sign up</button>
 
         {showForm && (
-             <form onSubmit={handleSubmit}>
-             <label>
-               Enter your name:
-               <input
-                 type="text"
-                 value={enteredName}
-                 onChange={(e) => setEnteredName(e.target.value)}
-                 placeholder="Your name"
-                 required
-               />
-             </label>
-             <button type="submit">Continue</button>
-           </form>
+            <form onSubmit={handleSubmit}>
+            <label>
+              Enter your name:
+              <input
+                type="text"
+                value={enteredName}
+                onChange={(e) => setEnteredName(e.target.value)}
+                placeholder="Your name"
+                required
+              />
+            </label>
+            <button type="submit">Continue</button>
+          </form>
         )}
 
 {signedUp && (
-  <a
-    href={generateGoogleCalendarLink({
+    <a
+      href={generateGoogleCalendarLink({
       title: event.title,
       description: event.description,
       location: event.location,
       startDate: event.event_date,
-      startTime: "10:00",         
-      durationMinutes: 60          
+      startTime: "10:00",          
+      durationMinutes: 60
     })}
-    target="_blank"
-    rel="noopener noreferrer"
-  >
+  target="_blank"
+  rel="noopener noreferrer"
+>
     <button>Add To Calendar</button>
-  </a>
+    </a>
 )}
         </>
     )
