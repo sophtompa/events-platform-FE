@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
-import { useParams, useNavigate } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { getEvent } from "../api"
+import { generateGoogleCalendarLink } from "../utils/calendar";
 
 function Event() {
     const {id} = useParams();
@@ -9,7 +10,6 @@ function Event() {
     const [showForm, setShowForm] = useState(false)
     const [signedUp, setSignedUp] = useState(false)
     const [enteredName, setEnteredName] = useState("")
-    const navigate = useNavigate()
 
     useEffect(
         () => {
@@ -21,6 +21,13 @@ function Event() {
     )
     if (isLoading) return <p>Loading...</p>
     if (!event) return <p>No event found</p>
+    
+    const calendarLink = generateGoogleCalendarLink({
+        title: event.title,
+        description: event.description,
+        location: event.location,
+        startDate: event.event_date,
+    });
 
     const handleSubmit = (e) => {
         e.preventDefault() 
@@ -43,24 +50,37 @@ function Event() {
         <button onClick={() => setShowForm(true)}>Sign up</button>
 
         {showForm && (
-             <form onSubmit={handleSubmit}>
-             <label>
-               Enter your name:
-               <input
-                 type="text"
-                 value={enteredName}
-                 onChange={(e) => setEnteredName(e.target.value)}
-                 placeholder="Your name"
-                 required
-               />
-             </label>
-             <button type="submit">Continue</button>
-           </form>
+            <form onSubmit={handleSubmit}>
+            <label>
+              Enter your name:
+              <input
+                type="text"
+                value={enteredName}
+                onChange={(e) => setEnteredName(e.target.value)}
+                placeholder="Your name"
+                required
+              />
+            </label>
+            <button type="submit">Continue</button>
+          </form>
         )}
 
-        {signedUp && (
-            <button>Add To Calendar</button>
-        )}
+{signedUp && (
+    <a
+      href={generateGoogleCalendarLink({
+      title: event.title,
+      description: event.description,
+      location: event.location,
+      startDate: event.event_date,
+      startTime: "10:00",          
+      durationMinutes: 60
+    })}
+  target="_blank"
+  rel="noopener noreferrer"
+>
+    <button>Add To Calendar</button>
+    </a>
+)}
         </>
     )
 }
