@@ -9,7 +9,7 @@ function Home() {
             <p>Staff can login to post events:</p>
             <button onClick={() => navigate("staff-signup")}>Staff Sign Up</button>
             <button onClick={() => navigate("staff-login")}>Staff Log In</button>
-            <p>Browse events as non-staff with the button below</p>
+            <p>Browse events as non-staff with the button below:</p>
             <button onClick={() => navigate("events")}>Browse</button>
         </section>
     )

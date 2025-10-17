@@ -21,10 +21,10 @@ function Users() {
         <header>
             <h1>Users</h1>
         </header>
-        <section>
+        <section className="event-user-section">
         {users.map((user) => {
             return (
-                <ul key={user.username} className='user-display' value={user.id}>
+                <ul key={user.username} className='event-user-display' value={user.id}>
                     <li className='user'>{user.username}</li>
                 </ul>
             )

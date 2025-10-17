@@ -27,10 +27,10 @@ function Events() {
         <header>
             <h1>Events</h1>
         </header>
-        <section>
+        <section className="event-user-section">
         {events.map((event) => {
             return (
-                <ul key={event.id} className='event-display' value={event.id} onClick={() => handleClick(event.id)}>
+                <ul key={event.id} className='event-user-display' value={event.id} onClick={() => handleClick(event.id)}>
                     <li className='title'>{event.title}</li>
                     <li>Details: {event.description}</li>
                     <li>Location: {event.location}</li>
