@@ -13,11 +13,12 @@ import User from '../components/User'
 
 function App() {
   const location = useLocation();
+  const isLoggedIn = !!localStorage.getItem("token");
 
   return (
     <>
     <Header/>
-    {location.pathname !== "/" && <Nav />}
+    {!isLoggedIn && location.pathname !== "/" && <Nav />}
     <Routes>
     <Route path='/' element={<Home/>}/>
     <Route path='/events' element={<Events/>}/>

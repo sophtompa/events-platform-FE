@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { getEvent } from "../api"
 import { generateGoogleCalendarLink } from "../utils/calendar";
+import DeleteEvent from "./DeleteEvent";
 
 function Event() {
     const {id} = useParams();

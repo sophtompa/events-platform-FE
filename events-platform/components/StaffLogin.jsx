@@ -20,6 +20,7 @@ function StaffLogin() {
                 return;
             }
             localStorage.setItem("token", res.token)
+            localStorage.setItem("loggedInUsername", username);
             navigate("/staff-user", {state: { username }})
         })
         .catch((err) => {
