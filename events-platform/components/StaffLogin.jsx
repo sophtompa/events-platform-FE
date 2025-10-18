@@ -5,19 +5,27 @@ import { loginUser } from "../api";
 function StaffLogin() {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate()
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        setLoading(true);
 
         loginUser(username, password)
         .then((res) => {
+            setLoading(false);
+            if (!res.token) {
+                alert("Invalid username or password");
+                return;
+            }
             localStorage.setItem("token", res.token)
             navigate("/staff-user", {state: { username }})
         })
         .catch((err) => {
+            setLoading(false);
             alert("Invalid username or password")
-            return err
+            console.error(err)
         })
         };
 
@@ -32,7 +40,7 @@ function StaffLogin() {
             <label> Password:
                 <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
             </label>
-            <button type="submit">Login</button>
+            <button type="submit" disabled={loading}> {loading ? "Logging in..." : "Login"} </button>
 
         </form>
         </>
