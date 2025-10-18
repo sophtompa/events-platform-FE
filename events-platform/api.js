@@ -64,4 +64,11 @@ const deleteEventById = (id) => {
     })
 }
 
-export { getAllEvents, getAllUsers, getEvent, getUser, getEventsByUsername, postUser, loginUser, postEvent, deleteEventById }
+const deleteUserByUsername = (username) => {
+    return api.delete(`/users/${username}`).then((data) => {
+        return data
+    })
+}
+
+
+export { getAllEvents, getAllUsers, getEvent, getUser, getEventsByUsername, postUser, loginUser, postEvent, deleteEventById, deleteUserByUsername }

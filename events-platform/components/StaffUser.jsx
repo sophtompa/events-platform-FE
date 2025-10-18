@@ -1,6 +1,7 @@
 import { useState } from "react";
 import NewEvent from "./NewEvent";
 import EventsByUsername from "./EventsByUser";
+import DeleteUser from "./DeleteUser";
 
 function StaffUser() {
     const loggedInUsername = localStorage.getItem("loggedInUsername") || "User";
@@ -30,6 +31,7 @@ function StaffUser() {
             {showMyEvents && <EventsByUsername username={loggedInUsername}/>}
             </>
         )}
+        <DeleteUser/>
         </>
     )
 }
