@@ -51,9 +51,6 @@ const loginUser = (username, password) => {
         console.log(data)
         return data
     })
-    .catch((err) => {
-        return err;
-    })
 }
 
 const postEvent = (eventData) => {
