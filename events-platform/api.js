@@ -40,9 +40,6 @@ const postUser = (username, password) => {
     return api.post(`/users`, { username, password }).then((data) => {
         return data
     })
-    .catch((err) => {
-        return err;
-    })
 }
 
 const loginUser = (username, password) => {
