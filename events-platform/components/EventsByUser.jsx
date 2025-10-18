@@ -8,14 +8,12 @@ function EventsByUsername({username}) {
         const navigate = useNavigate()
 
     useEffect(() => { 
-        console.log("Fetching events for:", username);
         if(!username) return;
         getEventsByUsername(username).then((eventData) => { 
             setEvents(eventData)
             setLoading(false)
         })
         .catch((err) => {
-            console.log(err)
             console.error("Error fetching user events:", err);
             setLoading(false);
         });
