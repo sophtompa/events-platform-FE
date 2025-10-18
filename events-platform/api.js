@@ -30,6 +30,12 @@ const getUser = (username) => {
     })
 }
 
+const getEventsByUsername = (username) => {
+    return api.get(`/events/user/${username}`).then(({data}) => {
+        return data
+    })
+}
+
 const postUser = (username, password) => {
     return api.post(`/users`, { username, password }).then((data) => {
         return data
@@ -60,4 +66,4 @@ const postEvent = (eventData) => {
     })
 }
 
-export { getAllEvents, getAllUsers, getEvent, postUser, loginUser, postEvent }
+export { getAllEvents, getAllUsers, getEvent, getUser, getEventsByUsername, postUser, loginUser, postEvent }

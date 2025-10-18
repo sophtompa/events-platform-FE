@@ -19,7 +19,7 @@ function Users() {
             navigate(`/users/${username}`)
         }
 
-        if (isLoading) return <h3>Getting Events...</h3>
+        if (isLoading) return <h3>Getting Users...</h3>
 
 
     return (
@@ -27,10 +27,10 @@ function Users() {
         <header>
             <h1>Users</h1>
         </header>
-        <section className="event-user-section" onClick={() => handleClick(user.username)}>
+        <section className="event-user-section" >
         {users.map((user) => {
             return (
-                <ul key={user.username} className='event-user-display' value={user.id}>
+                <ul key={user.username} className='event-user-display' value={user.id} onClick={() => handleClick(user.username)}>
                     <li className='user'>{user.username} </li>
                 </ul>
             )
