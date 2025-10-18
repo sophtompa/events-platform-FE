@@ -45,14 +45,12 @@ const postUser = (username, password) => {
 const loginUser = (username, password) => {
     return api.post(`/login`, { username, password })
     .then(({data}) => {
-        console.log(data)
         return data
     })
 }
 
 const postEvent = (eventData) => {
     return api.post(`/events`, eventData).then(({data}) => {
-        console.log(data)
         return data
     })
     .catch((err) => {
@@ -60,4 +58,10 @@ const postEvent = (eventData) => {
     })
 }
 
-export { getAllEvents, getAllUsers, getEvent, getUser, getEventsByUsername, postUser, loginUser, postEvent }
+const deleteEventById = (id) => {
+    return api.delete(`/events/${id}`).then((data) => {
+        return data
+    })
+}
+
+export { getAllEvents, getAllUsers, getEvent, getUser, getEventsByUsername, postUser, loginUser, postEvent, deleteEventById }
