@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { getAllUsers } from "../api";
+import { useNavigate } from "react-router-dom";
 
 function Users() {
     const [isLoading, setLoading] = useState(true)
     const [users, setUsers] = useState([])
+    const navigate = useNavigate();
 
     useEffect(
         () => { 
@@ -13,7 +15,11 @@ function Users() {
             })
         }, [])
 
-        if (isLoading) return <h3>Getting Events...</h3>
+        function handleClick(username) {
+            navigate(`/users/${username}`)
+        }
+
+        if (isLoading) return <h3>Getting Users...</h3>
 
 
     return (
@@ -21,11 +27,11 @@ function Users() {
         <header>
             <h1>Users</h1>
         </header>
-        <section className="event-user-section">
+        <section className="event-user-section" >
         {users.map((user) => {
             return (
-                <ul key={user.username} className='event-user-display' value={user.id}>
-                    <li className='user'>{user.username}</li>
+                <ul key={user.username} className='event-user-display' value={user.id} onClick={() => handleClick(user.username)}>
+                    <li className='user'>{user.username} </li>
                 </ul>
             )
         })}
