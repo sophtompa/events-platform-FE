@@ -6,6 +6,8 @@ function NewEvent({username, onPostSuccess}) {
     const [description, setDescription] = useState("");
     const [location, setLocation] = useState("");
     const [event_date, setEvent_date] = useState("");
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
 
 
     function handleSubmit(e) {
@@ -19,7 +21,8 @@ function NewEvent({username, onPostSuccess}) {
         username,
         };
 
-        console.log("Posting event:", formValues);
+        setLoading(true);
+        setError(null);
 
     postEvent(formValues)
     .then(() => {
@@ -30,8 +33,10 @@ function NewEvent({username, onPostSuccess}) {
         if (onPostSuccess) onPostSuccess();
     })
     .catch((err) => {
-        return err
+        console.error("Failed to post event:", err);
+        setError("Failed to post event. Please try again.");
     })
+    .finally(() => setLoading(false));
     }
 
     return (
@@ -75,8 +80,11 @@ function NewEvent({username, onPostSuccess}) {
 
         <p><strong>Posting as:</strong> {username}</p>
 
+        {error && <p style={{ color: "red" }}>{error}</p>}
 
-        <button type="submit">Post Event</button>
+
+
+        <button type="submit" disabled={loading}>{loading ? "Posting..." : "Post Event"}</button>
         </form>
         </>
     )
