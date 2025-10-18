@@ -10,6 +10,7 @@ import StaffSignUp from '../components/StaffSignUp'
 import StaffUser from '../components/StaffUser'
 import StaffLogin from '../components/StaffLogin'
 import User from '../components/User'
+import StaffNav from '../components/StaffNav'
 
 function App() {
   const location = useLocation();
@@ -19,6 +20,7 @@ function App() {
     <>
     <Header/>
     {!isLoggedIn && location.pathname !== "/" && <Nav />}
+    {isLoggedIn && location.pathname !== "/" && <StaffNav />}
     <Routes>
     <Route path='/' element={<Home/>}/>
     <Route path='/events' element={<Events/>}/>
