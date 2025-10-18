@@ -31,7 +31,7 @@ function StaffUser() {
             {showMyEvents && <EventsByUsername username={loggedInUsername}/>}
             </>
         )}
-        <DeleteUser/>
+        {!showNewEvent && !showMyEvents && <DeleteUser />}
         </>
     )
 }
