@@ -11,6 +11,8 @@
 ### Clone the repo
 
 Firstly, clone the repo to your device, using the command `git clone`.
+Then, cd into the project with `cd events-platform`.
+Once dependencies have been installed, run the command `npm run dev` to host locally.
 
 #### Installations:
 
