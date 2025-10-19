@@ -29,7 +29,7 @@ function DeleteUser() {
 }
 
     return(
-        <button className='delete-button' onClick={handleDelete} disabled={loading}>{loading ? "Deleting..." : "Delete Account"}</button>
+        <button className='delete' onClick={handleDelete} disabled={loading}>{loading ? "Deleting..." : "Delete Account"}</button>
     )
 }
 

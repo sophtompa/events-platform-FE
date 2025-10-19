@@ -25,7 +25,8 @@ function Events() {
     return (
         <>
         <header>
-            <h1>Events</h1>
+            <h2>Events</h2>
+            <h3 className="info-card">Here you can find a list of all existing events. Click on an event to view details, sign up, and add to your calendar.</h3>
         </header>
         <section className="event-user-section">
         {events.map((event) => {

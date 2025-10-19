@@ -31,9 +31,6 @@ function EventsByUsername({username}) {
 
     return (
     <>
-    <header>
-        <h1>Events</h1>
-    </header>
     <section className="event-user-section">
     {events.events.map((event) => {
         const loggedInUsername = localStorage.getItem("loggedInUsername");

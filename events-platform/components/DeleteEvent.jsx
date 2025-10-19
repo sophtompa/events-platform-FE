@@ -27,7 +27,7 @@ function DeleteEvent({id, username, setEvents}) {
 }
 
     return(
-        <button className='delete-button' onClick={handleDelete} disabled={loading}>{loading ? "Deleting..." : "Delete Event"}</button>
+        <button className='delete' onClick={handleDelete} disabled={loading}>{loading ? "Deleting..." : "Delete Event"}</button>
     )
 }
 

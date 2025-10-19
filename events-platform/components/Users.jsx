@@ -25,7 +25,8 @@ function Users() {
     return (
         <>
         <header>
-            <h1>Users</h1>
+            <h2>Users</h2>
+            <h3 className="info-card">Here you can find a list of all existing users. Click on a user to view all of their existing events.</h3>
         </header>
         <section className="event-user-section" >
         {users.map((user) => {

@@ -41,8 +41,8 @@ function NewEvent({username, onPostSuccess}) {
 
     return (
         <>
-        <form onSubmit={handleSubmit}>
-        <label>
+        <form className="post-form" onSubmit={handleSubmit}>
+        <label className="post-label">
             Title:
             <input
             type="text"
@@ -51,7 +51,7 @@ function NewEvent({username, onPostSuccess}) {
             required />
         </label>
 
-        <label>
+        <label className="post-label">
             Description:
             <input
             type="textarea"
@@ -60,7 +60,7 @@ function NewEvent({username, onPostSuccess}) {
             required />
         </label>
 
-        <label>
+        <label className="post-label">
             Location:
             <input
             type="text"
@@ -69,7 +69,7 @@ function NewEvent({username, onPostSuccess}) {
             required />
         </label>
 
-        <label>
+        <label className="post-label">
             Date:
             <input
             type="date"
