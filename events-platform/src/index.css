@@ -184,6 +184,15 @@ button:hover {
   margin-top: 1rem;
 }
 
+.weather-button {
+  margin-bottom: 0.5rem;
+}
+
+.sign-up-button {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
 .view-events, .delete, .logout {
   margin-bottom: 1rem;
 }
