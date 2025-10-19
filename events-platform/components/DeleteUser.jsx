@@ -29,8 +29,9 @@ function DeleteUser() {
 }
 
     return(
+        <div className="button-group">
         <button className='delete' onClick={handleDelete} disabled={loading}>{loading ? "Deleting..." : "Delete Account"}</button>
-    )
+        </div>)
 }
 
 export default DeleteUser;

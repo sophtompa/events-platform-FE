@@ -83,8 +83,9 @@ function NewEvent({username, onPostSuccess}) {
         {error && <p style={{ color: "red" }}>{error}</p>}
 
 
-
+        <div className="button-group">
         <button type="submit" disabled={loading}>{loading ? "Posting..." : "Post Event"}</button>
+        </div>
         </form>
         </>
     )

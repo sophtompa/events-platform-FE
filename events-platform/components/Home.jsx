@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Home() {
+    const [showInfo, setShowInfo] = useState(false);
     const navigate = useNavigate()
     const [loggedInUsername, setLoggedInUsername] = useState(
         localStorage.getItem("loggedInUsername"))
@@ -15,6 +16,10 @@ function Home() {
         setLoggedInUsername(null);
         navigate("/");
     }
+
+    const handleInfoToggle = () => {
+        setShowInfo((prev) => !prev);
+      };
 
     return (
         <section>
@@ -33,13 +38,30 @@ function Home() {
                 </>
             ) : (
                 <>
-                <h3 className="info-card">This is a platform where staff can create an account, login, and post events. Staff and non-staff can view all posted events. You can sign up to an event, and add it to your google calendar. You can also view all existing users to acces their events.</h3>
-                    <p>Staff can create and account and login to post events:</p>
+                <button onClick={handleInfoToggle}>
+                {showInfo ? "Hide Info" : "Show Platform Info"}
+                </button>
+
+            {showInfo && (
+            <h3 className="info-card">
+                <p>This is a platform where staff can create an account, login, and post
+                events. Staff and non-staff can view all posted events. You can sign up
+                to an event, and add it to your google calendar. You can also view all
+                existing users to access their specific events.</p>
+
+            <p>Click <strong>"Staff Sign In"</strong> to create an account. You will then be redirected to the login page.</p>
+
+            <p>Click <strong>"Staff Login"</strong>  to login with an existing account. Please create a complex password to improve your account security.</p>
+            
+            <p>Click <strong>"Browse"</strong> If you are not a staff member, and wish to browse available events and sign up. </p>
+            </h3>
+        )}
+                    <p className="homepage-message">Create and account or login:</p>
                     <div className="button-group">
                     <button onClick={() => navigate("staff-signup")}>Staff Sign Up</button>
-                    <button onClick={() => navigate("staff-login")}>Staff Log In</button>
+                    <button onClick={() => navigate("staff-login")}>Staff Login</button>
                     </div>
-                    <p>Non-staff can browse events below:</p>
+                    <p className="homepage-message">Browse events as a guest:</p>
                     <button onClick={() => navigate("events")}>Browse</button>
                 </>
             )}

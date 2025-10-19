@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: beige;
-  background-color:steelblue;
+  background-color:rebeccapurple;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -25,7 +25,7 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  flex-direction: column;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -33,25 +33,6 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
 @media (prefers-color-scheme: light) {
@@ -64,6 +45,28 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    flex-direction: column;
+    place-items: flex-start;
+    padding: 1rem;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .button-group {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  button {
+    width: 100%;
   }
 }
 
@@ -107,7 +110,8 @@ nav a:hover {
   border: 2px solid #000;
   border-radius: 16px;
   padding: 1.5rem;
-  width: 280px;
+  width: 90%;
+  max-width: 280px;
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -131,18 +135,29 @@ nav a:hover {
 }
 
 button {
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
   background-color: darkslateblue;
   color: beige;
   border: 2px solid black;  
   border-radius: 8px;
   padding: 0.7em 1.4em;
-  font-size: 1em;
   cursor: pointer;
   box-shadow: 2px 2px 6px rgba(0,0,0,0.4);
   transition: all 0.3s ease;
+  width: 100%;
+  max-width: 300px;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
 }
 
 button:hover {
+  border-color: #646cff;
   background-color: #3a3f9a;
   transform: scale(1.05);
   box-shadow: 4px 4px 10px rgba(0,0,0,0.5);
@@ -155,6 +170,7 @@ button:hover {
 
 .delete:hover,
 .logout:hover {
+  border-color: rgb(255, 80, 80);
   background-color: rgb(200, 60, 60);
   transform: scale(1.05);
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
@@ -168,12 +184,17 @@ button:hover {
   margin-top: 1rem;
 }
 
+.view-events, .delete, .logout {
+  margin-bottom: 1rem;
+}
+
 .info-card {
   background-color: beige;
   border: 2px solid #000;
   border-radius: 16px;
   padding: 1.5rem;
   margin: 1rem auto;
+  width: 90%;
   max-width: 800px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   color: #213547;
@@ -185,9 +206,11 @@ button:hover {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  width: 90%;
   max-width: 350px;
   margin: 0 auto;
   padding: 0;
+  box-sizing: border-box;
 }
 
 .post-label {
@@ -209,7 +232,16 @@ button:hover {
 
 .post-cancel-button {
   margin-bottom: 1rem;
-  padding: 0.5rem 1rem;
+  padding: 0.7em 1.4em;
+  font-size: 1em; 
 }
 
 
+.staff-warning {
+  color: red
+}
+
+.homepage-message, .staff-message {
+    font-weight: bold;  
+    font-size: 1.2rem;        
+}
